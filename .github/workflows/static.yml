@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
 
     steps:
