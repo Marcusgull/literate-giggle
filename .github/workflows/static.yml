@@ -22,12 +22,12 @@ jobs:
 
       - name: CI test
         run: echo "CI pipeline passed!"
-test:
-  needs: build
-  runs-on: ubuntu-latest
+  test:
+    needs: build
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: checkout repo
-      uses: actions/checkout@v4
-    - name: test check files
-      run: echo "test ran sucessfully!"concurrency
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: test check files
+        run: echo "test ran sucessfully!"concurrency
