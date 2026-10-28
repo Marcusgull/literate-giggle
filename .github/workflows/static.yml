@@ -30,4 +30,4 @@ test:
     - name: checkout repo
       uses: actions/checkout@v4
     - name: test check files
-      run: echo "test ran sucessfully!"concurrency:
+      run: echo "test ran sucessfully!"concurrency
