@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="GalacticTravel.Tests/GalacticTravel.Tests.csproj" />
+  <Project Path="GalacticTravel/GalacticTravel.csproj" />
+</Solution>
