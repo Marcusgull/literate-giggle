@@ -1,4 +1,4 @@
-name: CI
+name: .NET CI
 
 on:
   push:
@@ -17,11 +17,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: List files
-        run: ls -la
+      - name: Setup .Net
+        uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: '10.0.x'
 
-      - name: CI test
-        run: echo "CI pipeline passed!"
+      - name: Restore
+        run: dotnet restore GalacticTravel.slnx
+
+      - name: Build
+        run: dotnet build GalacticTravel.slnx --configuration Release --no-restore
+        
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -29,5 +35,11 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
-      - name: test check files
-        run: echo "test ran sucessfully!"concurrency
+        
+      - name: Setup .Net
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Run tests
+        run: dotnet test GalacticTravel.slnx --configuration Release --no-build
